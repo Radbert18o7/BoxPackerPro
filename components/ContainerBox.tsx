@@ -9,11 +9,11 @@ import { usePackerStore } from "@/store/usePackerStore";
 export default function ContainerBox() {
   const containerOpacity = usePackerStore((s) => s.containerOpacity);
   const packingResult = usePackerStore((s) => s.packingResult);
+  const meshRef = useRef<THREE.Mesh>(null);
 
   if (!packingResult) return null;
 
   const { containerWidth, containerHeight, containerDepth } = packingResult;
-  const meshRef = useRef<THREE.Mesh>(null);
 
   // Center the container so (0,0,0) is the bottom-left-back corner visually
   const cx = containerWidth / 2;
